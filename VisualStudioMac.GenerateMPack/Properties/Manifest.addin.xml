@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+
+<Addin name        = "VSM: Generate .mpack"
+       id          = "GenerateMPack"
+       namespace   = "VisualStudioMac"
+       author      = "Ivo Krugers"
+       copyright   = "MIT X11"
+       url         = "https://github.com/IvoKrugers"
+       description = "This extension adds a item to the tools menu to generate a .mpack file from a release build.
+
+By Ivo Krugers"
+       category    = "IDE extensions"
+       version     = "17.5.1">
+
+	<!--<Runtime>
+		<Import assembly="VisualStudioMac.SolutionTreeFilter.dll" />
+	</Runtime>-->
+
+	<Extension path="/MonoDevelop/Ide/Commands">
+		<Category _name="MPack_Generation" id="MPackGeneration">
+			<Command
+				id="VisualStudioMac.GenerateMPack.GenerateCommandHandler"
+				defaultHandler="VisualStudioMac.GenerateMPack.CommandHandlers.GenerateCommandHandler"
+				_description="Generate a .mpack file from a release build"
+				_label="Generate .mpack"/>
+		</Category>
+	</Extension>
+
+	<!-- Main Tool Menu Entries -->
+	<Extension path="/MonoDevelop/Ide/MainMenu/Tools">
+		<SeparatorItem insertbefore="MonoDevelop.Ide.Commands.EditCommands.MonodevelopPreferences"/>
+		<CommandItem id="VisualStudioMac.GenerateMPack.GenerateCommandHandler" insertafter="OptionsSection" />
+	</Extension>
+	
+</Addin>
